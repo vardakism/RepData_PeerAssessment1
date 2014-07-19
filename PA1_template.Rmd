@@ -5,7 +5,7 @@ author: "MV"
 date: "Friday, July 19, 2014"
 output: html_document
 ---
-This is a R Markdown document to guide you through the analysis of personal movement activity data as a subject of the reproducible research course assignment. Please see the [README.md](https://github.com/rdpeng/RepData_PeerAssessment1/blob/master/README.md) for any further information.
+This is a R Markdown document to guide you through the analysis of personal movement activity data as a subject of the reproducible research course assignment. Please see the [README.md](https://github.com/vardakism/RepData_PeerAssessment1/blob/master/README.md) for any further information.
 
 ```{r setup}
 # set global chunk options: 
