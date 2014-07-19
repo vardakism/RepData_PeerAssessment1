@@ -55,7 +55,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <div id="header">
 <h1 class="title">Reproducible Research: Peer Assessment 1 Personal Movement Activity</h1>
 <h4 class="author"><em>MV</em></h4>
-<h4 class="date"><em>Friday, July 18, 2014</em></h4>
+<h4 class="date"><em>Friday, July 19, 2014</em></h4>
 </div>
 
 
@@ -66,7 +66,8 @@ opts_chunk$set(cache=TRUE,cache.path = 'PA1_template_cache/', fig.path='figure/'
 <div id="step1-loading-and-processing-the-data" class="section level3">
 <h3>Step1: Loading and Processing the data</h3>
 <p>In this step data are imported in R.</p>
-<pre class="r"><code>actv&lt;-read.csv(&quot;activity.csv&quot;,header=TRUE,sep=&quot;,&quot;)
+<pre class="r"><code>#Load the data and note the missing values
+actv&lt;-read.csv(&quot;activity.csv&quot;,header=TRUE,sep=&quot;,&quot;)
 summary(actv)</code></pre>
 <pre><code>##      steps               date          interval   
 ##  Min.   :  0.0   2012-10-01:  288   Min.   :   0  
@@ -82,7 +83,7 @@ datc&lt;-as.character(actv$date)
 actv$daten &lt;- as.POSIXct( strptime(datc, &quot;%Y-%m-%d&quot;))  
 # Format it as weekdays too
 actv$days&lt;-weekdays(as.Date(actv$daten))
-# Check which are the weekend data
+# Classify the days in weekend days and week days (working days)
 actv$wnd&lt;-0
 actv$wnd[actv$days %in% c('Saturday','Sunday')]&lt;-1
 actv$wnd&lt;-factor(actv$wnd,levels=c(1,0),labels=c(&quot;Weekend&quot;,&quot;Weekday&quot;) )

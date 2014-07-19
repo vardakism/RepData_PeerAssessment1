@@ -2,7 +2,7 @@
 title: "Reproducible Research: Peer Assessment 1 
  Personal Movement Activity"
 author: "MV"
-date: "Friday, July 18, 2014"
+date: "Friday, July 19, 2014"
 output: html_document
 ---
 This is a R Markdown document to guide you through the analysis of personal movement activity data as a subject of the reproducible research course assignment. Please see the [README.md](https://github.com/rdpeng/RepData_PeerAssessment1/blob/master/README.md) for any further information.
@@ -16,6 +16,7 @@ opts_chunk$set(cache=TRUE,cache.path = 'PA1_template_cache/', fig.path='figure/'
 In this step data are imported in R.
 
 ```{r}
+#Load the data and note the missing values
 actv<-read.csv("activity.csv",header=TRUE,sep=",")
 summary(actv)
 
@@ -25,7 +26,7 @@ datc<-as.character(actv$date)
 actv$daten <- as.POSIXct( strptime(datc, "%Y-%m-%d"))  
 # Format it as weekdays too
 actv$days<-weekdays(as.Date(actv$daten))
-# Check which are the weekend data
+# Classify the days in weekend days and week days (working days)
 actv$wnd<-0
 actv$wnd[actv$days %in% c('Saturday','Sunday')]<-1
 actv$wnd<-factor(actv$wnd,levels=c(1,0),labels=c("Weekend","Weekday") )
